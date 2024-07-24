@@ -132,6 +132,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="constr_ref.h" />
+    <ClInclude Include="release_assert.h" />
     <ClInclude Include="random_gref.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

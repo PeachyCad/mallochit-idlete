@@ -1,10 +1,10 @@
 #pragma once
 #include <utility>
-#include <cassert>
 #include <random>
+#include "release_assert.h"
 
-extern std::default_random_engine generator;
-extern std::uniform_int_distribution<size_t> distribution;
+thread_local extern std::default_random_engine generator;
+thread_local extern std::uniform_int_distribution<size_t> distribution;
 
 template<typename T>
 class rgrowned;
@@ -37,8 +37,8 @@ class random_gref_guard {
 public:
     inline random_gref_guard(rgrowned<T>* own_, size_t rememberedKey) :
         own(own_) {
-        assert(rememberedKey == own->currentKey);
-        assert(own->present);
+        release_assert(rememberedKey == own->currentKey);
+        release_assert(own->present);
         own->present = false;
     }
     inline ~random_gref_guard() {
@@ -62,7 +62,7 @@ public:
         currentKey(distribution(generator)),
         contents(std::move(contents_)) {}
     inline ~rgrowned() {
-        assert(present);
+        release_assert(present);
     }
 
     inline random_gref<T> ref() {

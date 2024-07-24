@@ -29,5 +29,8 @@
     <ClInclude Include="constr_ref.h">
       <Filter>Файлы заголовков</Filter>
     </ClInclude>
+    <ClInclude Include="release_assert.h">
+      <Filter>Файлы заголовков</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>
