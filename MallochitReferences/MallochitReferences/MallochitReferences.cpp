@@ -43,15 +43,21 @@ int main()
 	a = foo();
 }*/
 
-/// arc_ref
-#include <iostream>
-#include <thread>
-#include <atomic>
-#include <type_traits>
+/// sref
+/* #include <iostream>
+#include "sref.h"
 
 using namespace std;
 
-
 int main()
 {
-}
+
+	sref<int> sr1 = make_sref<int>(10);
+	auto sr2 = sr1;
+	auto sr3 = sr1;
+
+	*sr2 = 2;
+	*sr3 = 11;
+
+	cout << *sr1 << endl;
+}*/

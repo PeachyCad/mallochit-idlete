@@ -131,6 +131,7 @@
     <ClCompile Include="random_gref.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="sref.h" />
     <ClInclude Include="constr_ref.h" />
     <ClInclude Include="release_assert.h" />
     <ClInclude Include="random_gref.h" />
