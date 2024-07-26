@@ -14,7 +14,7 @@
 #define constr_ref _constr_ref
 #define constr_ref_guard _constr_ref_guard
 #define make_crowned _make_crowned
-#endif // NDEBUG
+#endif
 
 
 template<typename T>
