@@ -127,7 +127,17 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="framework_proxy.cpp" />
     <ClCompile Include="IdleteBroker.cpp" />
+    <ClCompile Include="mediator.cpp" />
+    <ClCompile Include="vm_proxy.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="command.h" />
+    <ClInclude Include="framework_proxy.h" />
+    <ClInclude Include="mediator.h" />
+    <ClInclude Include="proxy.h" />
+    <ClInclude Include="vm_proxy.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

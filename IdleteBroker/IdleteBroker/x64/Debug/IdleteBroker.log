@@ -1,2 +1,6 @@
-﻿  IdleteBroker.cpp
+﻿  framework_proxy.cpp
+  IdleteBroker.cpp
+  mediator.cpp
+  vm_proxy.cpp
+  Создание кода...
   IdleteBroker.vcxproj -> D:\repos\mallochit\IdleteBroker\x64\Debug\IdleteBroker.exe
