@@ -3,8 +3,9 @@
 #include "mediator.h"
 #include "framework_proxy.h"
 #include "vm_proxy.h"
+#include "fakeit.hpp"
 
-using namespace std;
+using namespace fakeit;
 
 int main() {
     /// First create proxies with null mediator
@@ -18,9 +19,19 @@ int main() {
     dynamic_cast<ConcreteFrameworkProxy*>(frameworkProxy.get())->setMediator(mediator);
     dynamic_cast<ConcreteVMProxy*>(vmProxy.get())->setMediator(mediator);
 
-    /// Send commands using the proxies
-    frameworkProxy->send(std::make_unique<NotifyIdleCommand>());
-    vmProxy->send(std::make_unique<KillIsolateCommand>());
+    /// Create mock command to notify Idle
+    Mock<Command> notifyIdleMock;
+    When(Method(notifyIdleMock, execute)).AlwaysDo([]() { std::cout << "Notify Idle" << std::endl; });
+    std::unique_ptr<Command> notifyIdleCommandPtr(&notifyIdleMock.get());
+
+    /// Create mock command to kill Isolate
+    Mock<Command> killIsolateMock;
+    When(Method(killIsolateMock, execute)).AlwaysDo([]() { std::cout << "Kill Isolate" << std::endl; });
+    std::unique_ptr<Command> killIsolateCommandPtr(&killIsolateMock.get());
+
+    /// Send mock commands
+    frameworkProxy->send(move(notifyIdleCommandPtr));
+    vmProxy->send(move(killIsolateCommandPtr));
 
     return 0;
 }

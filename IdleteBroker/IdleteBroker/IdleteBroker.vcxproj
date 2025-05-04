@@ -134,6 +134,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="command.h" />
+    <ClInclude Include="fakeit.hpp" />
     <ClInclude Include="framework_proxy.h" />
     <ClInclude Include="mediator.h" />
     <ClInclude Include="proxy.h" />
